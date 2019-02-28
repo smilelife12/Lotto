@@ -25,7 +25,7 @@ public class main {
                 }
                 continue;
             }
-            System.out.println("\nYou do not press right button.\n");
+            System.out.println("\nYou do not press right button.");
         }
     }
 }
