@@ -23,7 +23,7 @@ public class Lotto {
     public int[] getNum(){
         int []numbers = new int[numofLotto];
         int count =0;
-        while (count<6) numbers[count++] = getRandomNum();
+        while (count<numofLotto) numbers[count++] = notDuplicateNum(numbers,count);
         return numbers;
     }
 
@@ -31,6 +31,18 @@ public class Lotto {
         double num=Math.random();
         int lottoNum = (int)(num*100%45+1);
         return lottoNum;
+    }
+    private int notDuplicateNum(int [] nums, int count){
+        while (true) {
+            int number = getRandomNum();
+            if(checkDuplicateNum(nums,count,number))
+                return number;
+        }
+    }
+    private boolean checkDuplicateNum(int [] nums, int count, int num){
+        int c = 0;
+        while (c<count) if(num ==nums[c++]) return false;
+        return true;
     }
 
 }

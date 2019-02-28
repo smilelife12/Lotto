@@ -27,4 +27,18 @@ public class LottoTest {
         for(int num: numbers)
             assertTrue(num>=1);
     }
+    @Test
+    public void lottoNumSmallerThanFourtyFive(){
+        int [] numbers = lotto.getNum();
+        for(int num: numbers)
+            assertTrue(num<=45);
+    }
+    @Test
+    public void lottoNumberisNotDuplicated(){
+        int [] numbers = lotto.getNum();
+        for(int i = 0 ; i<numbers.length-1;i++){
+            for (int j = i+1; j<numbers.length;j++)
+                assertTrue(numbers[i]!=numbers[j]);
+        }
+    }
 }
