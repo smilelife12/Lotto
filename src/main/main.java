@@ -7,7 +7,7 @@ public class main {
         Lotto lotto = new Lotto();
         Scanner sc = new Scanner(System.in);
         while (true){
-            System.out.println("\nThis program give you Lotto numbers randomly.\n If you want to start this " +
+            System.out.println("\nThis program give you Lotto numbers randomly.\nIf you want to start this " +
                     "program, " +
                     "press the 's'. Or, if you want to quit, press 'q'!");
             String input = sc.next();
@@ -25,7 +25,7 @@ public class main {
                 }
                 continue;
             }
-            System.out.println("\nYou do not press right button.\n");
+            System.out.println("\nYou do not press right button.");
         }
     }
 }
