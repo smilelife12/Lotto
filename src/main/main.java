@@ -10,12 +10,13 @@ public class main {
             System.out.println("\nThis program give you Lotto numbers randomly.\nIf you want to start this " +
                     "program, " +
                     "press the 's'. Or, if you want to quit, press 'q'!");
+
             String input = sc.next();
             if(lotto.isStop(input)) {
                 System.out.println("\nThis program is Quit.....");
                 break;
             }
-            if (lotto.isRight(input)) {
+            if (lotto.isContinue(input)) {
                 int [] LottoNum = lotto.getNum();
                 System.out.println("\nYour Lotto Number is ");
                 for (int num:
