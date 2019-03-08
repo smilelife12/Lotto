@@ -3,41 +3,53 @@ package main;
 public class Lotto {
     private int min = 1;
     private int max = 45;
-    private int numofLotto = 6;
+    private int countOfNum = 6;
+
     public boolean isStop(String set)
     {
-        if(set.equals("q")) return true;
-        if(set.equals("Q")) return true;
+        if(set.equals("q") || set.equals("Q"))
+            return true;
+
         return false;
     }
-    public boolean isRight(String set)
+
+    public boolean isContinue(String set)
     {
-        if(set.equals("s")) return true;
-        if(set.equals("S")) return true;
+        if(set.equals("s") || set.equals("S"))
+            return true;
+
         return false;
     }
-    public int[] getNum(){
-        int []numbers = new int[numofLotto];
+
+    public int[] getNum()
+    {
+        int []numbers = new int[countOfNum];
         int count =0;
-        while (count<numofLotto) numbers[count++] = notDuplicateNum(numbers,count);
+        while (count< countOfNum) numbers[count++] = drawANum(numbers,count);
         return numbers;
     }
 
-    private int getRandomNum() {
-        double num=Math.random();
-        int lottoNum = (int)(num*100%max+min);
-        return lottoNum;
-    }
-    private int notDuplicateNum(int [] nums, int count){
+    private int drawANum(int [] nums, int count){
         while (true) {
             int number = getRandomNum();
-            if(checkDuplicateNum(nums,count,number))
+            if(checkNotDuplicated(nums,count,number))
                 return number;
         }
     }
-    private boolean checkDuplicateNum(int [] nums, int count, int num){
+
+    private int getRandomNum() {
+        double num = Math.random();
+
+        return (int)(num * 100 % max + min);
+    }
+
+    private boolean checkNotDuplicated(int [] nums, int count, int num){
         int c = 0;
-        while (c<count) if(num ==nums[c++]) return false;
+        while (c < count) {
+            if (num == nums[c++])
+                return false;
+        }
+
         return true;
     }
 
